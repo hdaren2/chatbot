@@ -28,13 +28,13 @@
       messagesDiv.innerHTML += `<div class="msg user">You: ${message}</div>`;
       input.value = '';
 
-      const response = await fetch('https://your-backend.com/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message })
+      const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message })
       });
       const data = await response.json();
-
+      
       messagesDiv.innerHTML += `<div class="msg bot">Bot: ${data.reply}</div>`;
       messagesDiv.scrollTop = messagesDiv.scrollHeight;
     }
